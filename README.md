@@ -1,6 +1,6 @@
 # Silver Octo Restaurant ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django?style=flat-square)
 
-![restaurant](media/image-1.png)
+![restaurant_img](media/image-1.png)
 ## Опис
 Silver Octo Restaurant - це внутрішня система для компаній, яка допомагає їхнім співробітникам приймати рішення щодо місця обіду. Ресторани можуть завантажувати меню на кожен день через API, а співробітники можуть голосувати за обране меню через мобільний додаток.
 
