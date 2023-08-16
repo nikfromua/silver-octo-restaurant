@@ -25,21 +25,67 @@ git clone https://github.com/nikfromua/silver-octo-restaurant
 ```
 
 
-2. Перейдіть до директорії проекту:
+
+2. Встановіть залежності:
+
 ```
-cd silver-octo-restaurant
+pip install -r requirements.txt
 ```
-3. Запустіть Docker Compose:
+
+3. Налаштування бази даних:
+
+Вибір СУБД:
+Django підтримує декілька систем управління базами даних (СУБД) "з коробки":
+
+PostgreSQL
+MySQL
+SQLite
+Oracle
+Примітка: Переконайтеся, що ви встановили необхідні пакети для вашої СУБД. Наприклад, для PostgreSQL це psycopg2.
+
+Оновіть settings.py:
+У вашому файлі settings.py знаходиться розділ DATABASES. Ось приклад для PostgreSQL:
+
 ```
-docker-compose up
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
 ```
 
 
 
+## Як запустити проект
+
+1. Запустіть сервер:
+
+```
+python manage.py runserver
+```
+
+2. Відкрийте браузер та перейдіть на `http://127.0.0.1:8000/`.
+
+## Використання API
+
+Ось основні ендпойнти нашого API:
+
+- `GET /api/items/`: отримання списку елементів.
+- `POST /api/items/`: створення нового елемента.
+
+**Приклад запиту**:
+```
+curl -X GET http://127.0.0.1:8000/api/items/
+```
 ## Ліцензія
 
 Цей проект розповсюджується під ліцензією MIT. Детальніше можна дізнатися в файлі [LICENSE](LICENSE).
 
-## Контакт
-
-Якщо у вас є питання або ви хочете надіслати відгук, будь ласка, звертайтеся за адресою nikitanec@gmail.com.
+## P.S.
+Я новачок у Django, тож прошу вибачення за можливі неточності або недоліки у проекті. Я завжди відкритий до ваших підказок та порад, щоб робити свої проекти кращими. Дякую за розуміння!

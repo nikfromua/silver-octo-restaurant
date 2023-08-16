@@ -30,6 +30,9 @@ class Employee(models.Model):
 
 #Голос:
 class Vote(models.Model):
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ['employee', 'date']
